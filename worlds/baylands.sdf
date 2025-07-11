@@ -44,9 +44,44 @@
       <pose relative_to ="park">0 0 -2 0 0 0</pose>
     </include>
 
-    <include><uri>model://walking_person</uri>
-      <pose >5 0 0 0 0 0</pose>
-    </include>
+    <actor name="walking_people">
+      <pose>4 -0.1 0 0 0 0</pose>
+      <skin>
+        <filename>model://walking_person/meshes/walking.dae</filename>
+      </skin>
+      <animation name="walking">
+        <filename>model://walking_person/meshes/walking.dae</filename>
+        <interpolate_x>true</interpolate_x>
+        <scale>1.000000</scale>
+      </animation>
+      <script>
+        <loop>true</loop>
+        <delay_start>0.0</delay_start>
+        <auto_start>true</auto_start>
+        <trajectory id="0" type="walking">
+          <waypoint>
+            <time>0.0</time>
+            <pose>8 -0.1 0 0 0 0</pose>
+          </waypoint>
+          <waypoint>
+            <time>10.0</time>
+            <pose>14 -0.1 0 0 0 1.57</pose>
+          </waypoint>
+          <waypoint>
+            <time>20.0</time>
+            <pose>14 5 0 0 0 3.14</pose>
+          </waypoint>
+          <waypoint>
+            <time>30.0</time>
+            <pose>8 5 0 0 0 4.71</pose>
+          </waypoint>
+          <waypoint>
+            <time>40.0</time>
+            <pose>8 -0.1 0 0 0 6.28</pose>
+          </waypoint>
+        </trajectory>
+      </script>
+    </actor>
 
     <!-- 添加一个固定高度的气球 -->
     <model name="fixed_balloon">
