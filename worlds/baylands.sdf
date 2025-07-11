@@ -41,9 +41,7 @@
       <uri>
         https://fuel.gazebosim.org/1.0/OpenRobotics/models/Coast Water
       </uri>
-      <pose>0 0 -2 0 0 0
-        <relative_to>park</relative_to>
-      </pose>
+      <pose relative_to ="park">0 0 -2 0 0 0</pose>
     </include>
     <spherical_coordinates>
       <surface_model>EARTH_WGS84</surface_model>
@@ -52,5 +50,35 @@
       <longitude_deg>-121.998878727967</longitude_deg>
       <elevation>38</elevation>
     </spherical_coordinates>
+    <!-- 添加一个固定高度的气球 -->
+    <model name="fixed_balloon">
+      <!-- static 为 true，则模型不受物理影响，始终保持在给定 pose -->
+      <static>true</static>
+      <!-- x y z 设为 0 0 10，即气球浮在高度 10m 处 -->
+      <pose>0 0 10 0 0 0</pose>
+
+      <link name="balloon_link">
+        <!-- 可视化球体 -->
+        <visual name="balloon_visual">
+          <geometry>
+            <sphere>
+              <radius>0.5</radius>
+            </sphere>
+          </geometry>
+          <material>
+            <ambient>1 0 0 1</ambient>
+            <diffuse>1 0 0 1</diffuse>
+          </material>
+        </visual>
+        <!-- 碰撞体（可选，如果不需要物理交互可以去掉） -->
+        <collision name="balloon_collision">
+          <geometry>
+            <sphere>
+              <radius>0.5</radius>
+            </sphere>
+          </geometry>
+        </collision>
+      </link>
+    </model>
   </world>
 </sdf>
