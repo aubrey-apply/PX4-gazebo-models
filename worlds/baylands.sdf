@@ -43,19 +43,17 @@
       </uri>
       <pose relative_to ="park">0 0 -2 0 0 0</pose>
     </include>
-    <spherical_coordinates>
-      <surface_model>EARTH_WGS84</surface_model>
-      <world_frame_orientation>ENU</world_frame_orientation>
-      <latitude_deg>37.412173071650805</latitude_deg>
-      <longitude_deg>-121.998878727967</longitude_deg>
-      <elevation>38</elevation>
-    </spherical_coordinates>
+
+    <include><uri>model://walking_person</uri>
+      <pose >5 0 0 0 0 0</pose>
+    </include>
+
     <!-- 添加一个固定高度的气球 -->
     <model name="fixed_balloon">
       <!-- static 为 true，则模型不受物理影响，始终保持在给定 pose -->
       <static>true</static>
-      <!-- x y z 设为 0 0 10，即气球浮在高度 10m 处 -->
-      <pose>0 0 10 0 0 0</pose>
+      <!-- x y z 设为 3 0 10，即气球浮在高度 10m 处 -->
+      <pose>3 0 10 0 0 0</pose>
 
       <link name="balloon_link">
         <!-- 可视化球体 -->
@@ -81,5 +79,12 @@
       </link>
     </model>
 
+  <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <world_frame_orientation>ENU</world_frame_orientation>
+      <latitude_deg>37.412173071650805</latitude_deg>
+      <longitude_deg>-121.998878727967</longitude_deg>
+      <elevation>38</elevation>
+    </spherical_coordinates>
   </world>
 </sdf>
